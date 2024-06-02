@@ -1,8 +1,7 @@
+version: "3.9"
 services:
   wembedding:
-    #image: ghcr.io/ufal/wembedding:${EMB-2.10-}tf-2.3.1-gpu-preloaded-staging
-    build:
-      context: ./udpipe2/wembedding_service
+    image: ghcr.io/ufal/wembedding:${EMB-2.10-}tf-2.3.1-gpu-preloaded-staging
     ports:
       - "${PORT_EMB:-8000}:8000"
   udpipe2:

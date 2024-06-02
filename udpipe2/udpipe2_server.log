@@ -1,0 +1,400 @@
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Loaded model pt_all-ud-2.12-230717.model
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/urllib/request.py", line 1350, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/usr/lib/python3.7/http/client.py", line 948, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/usr/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    data=json.dumps({"model": model, "sentences": sentences}, ensure_ascii=True).encode("ascii"),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 1378, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.7/urllib/request.py", line 1352, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
+127.0.0.1 - - [01/Jun/2024 01:08:11] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/urllib/request.py", line 1350, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/usr/lib/python3.7/http/client.py", line 948, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/usr/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    data=json.dumps({"model": model, "sentences": sentences}, ensure_ascii=True).encode("ascii"),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 1378, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.7/urllib/request.py", line 1352, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
+127.0.0.1 - - [01/Jun/2024 01:11:19] "POST /process HTTP/1.1" 400 -
+Initiating shutdown of the UDPipe 2 server.
+Stopped handling new requests, processing all current ones.
+Finished shutdown of the UDPipe 2 server.
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Loaded model pt_all-ud-2.12-230717.model
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/urllib/request.py", line 1350, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/usr/lib/python3.7/http/client.py", line 948, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/usr/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    data=json.dumps({"model": model, "sentences": sentences}, ensure_ascii=True).encode("ascii"),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 1378, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.7/urllib/request.py", line 1352, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
+127.0.0.1 - - [01/Jun/2024 01:12:01] "POST /process HTTP/1.1" 400 -
+Initiating shutdown of the UDPipe 2 server.
+Stopped handling new requests, processing all current ones.
+Finished shutdown of the UDPipe 2 server.
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Loaded model pt_all-ud-2.12-230717.model
+Request, WE 9005.21+0.00ms, DS 0.19ms, NW 263.59+0.00ms, RD 0.01ms.
+127.0.0.1 - - [01/Jun/2024 01:13:25] "POST /process HTTP/1.1" 200 -
+Initiating shutdown of the UDPipe 2 server.
+Stopped handling new requests, processing all current ones.
+Finished shutdown of the UDPipe 2 server.
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Loaded model Portparser_model
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    data=json.dumps({"model": model, "sentences": sentences}, ensure_ascii=True).encode("ascii"),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 01:44:53] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    data=json.dumps({"model": model, "sentences": sentences}, ensure_ascii=True).encode("ascii"),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 01:53:19] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    "http://{}/wembeddings".format(self._url),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 01:54:13] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    "http://{}/wembeddings".format(self._url),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 01:54:59] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    "http://{}/wembeddings".format(self._url),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 02:05:27] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    "http://{}/wembeddings".format(self._url),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 02:06:41] "POST /process HTTP/1.1" 400 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 332, in do_GET
+    output = model.predict(batch, tag, parse, writer)
+  File "udpipe2_server.py", line 140, in predict
+    wembeddings = self._server_args.wembedding_server.compute_embeddings(self._network.args.wembedding_model, wembedding_input)
+  File "/home/ematos/devel/python/udpipe2-docker/udpipe2/wembedding_service/wembeddings/wembeddings.py", line 175, in compute_embeddings
+    "http://{}/wembeddings".format(self._url),
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+127.0.0.1 - - [01/Jun/2024 12:32:55] "POST /process HTTP/1.1" 400 -
+Request, WE 27818.47+0.00ms, DS 0.13ms, NW 226.10+0.00ms, RD 0.01ms.
+127.0.0.1 - - [01/Jun/2024 12:38:23] "POST /process HTTP/1.1" 200 -
+Initiating shutdown of the UDPipe 2 server.
+Stopped handling new requests, processing all current ones.
+Finished shutdown of the UDPipe 2 server.
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 430, in <module>
+    args.optional_semaphore = threading.Semaphore(args.concurrent) if args.concurrent is not None else contextlib.nullcontext()
+AttributeError: module 'contextlib' has no attribute 'nullcontext'
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Initiating shutdown of the UDPipe 2 server.
+Stopped handling new requests, processing all current ones.
+Finished shutdown of the UDPipe 2 server.
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Loaded model pt_all-ud-2.12-230717.model
+Request, WE 46870.56+0.00ms, DS 0.15ms, NW 440.59+0.00ms, RD 0.02ms.
+172.25.0.1 - - [01/Jun/2024 18:55:08] "POST /process HTTP/1.1" 200 -
+Request, WE 15566.13+0.00ms, DS 0.14ms, NW 423.23+0.00ms, RD 0.01ms.
+Started UDPipe 2 server on port 8001.
+To stop it gracefully, either send SIGINT (Ctrl+C) or SIGUSR1.
+Loaded model pt_all-ud-2.12-230717.model
+Request, WE 8724.98+0.00ms, DS 0.25ms, NW 252.01+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 20:56:13] "POST /process HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 357, in do_GET
+    request.wfile.write(b'"\n}\n')
+  File "/usr/local/lib/python3.7/socketserver.py", line 799, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+Exception happened during processing of request from ('172.25.0.1', 47308)
+Traceback (most recent call last):
+  File "udpipe2_server.py", line 357, in do_GET
+    request.wfile.write(b'"\n}\n')
+  File "/usr/local/lib/python3.7/socketserver.py", line 799, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python3.7/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.7/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/usr/local/lib/python3.7/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.7/http/server.py", line 422, in handle_one_request
+    method()
+  File "udpipe2_server.py", line 375, in do_POST
+    return request.do_GET()
+  File "udpipe2_server.py", line 369, in do_GET
+    request.wfile.write(b'",\n"An internal error occurred during processing, producing incorrect JSON!"')
+  File "/usr/local/lib/python3.7/socketserver.py", line 799, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+Request, WE 141.26+0.00ms, DS 0.14ms, NW 24.38+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:14:16] "POST /process HTTP/1.1" 200 -
+Request, WE 24.87+0.00ms, DS 0.15ms, NW 12.34+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:15:34] "POST /process HTTP/1.1" 200 -
+Request, WE 27.25+0.00ms, DS 0.15ms, NW 11.12+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:16:27] "POST /process HTTP/1.1" 200 -
+Request, WE 27.23+0.00ms, DS 0.16ms, NW 12.81+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:17:44] "POST /process HTTP/1.1" 200 -
+Request, WE 28.03+0.00ms, DS 0.13ms, NW 12.56+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:19:34] "POST /process HTTP/1.1" 200 -
+Request, WE 26.36+0.00ms, DS 0.13ms, NW 11.35+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:57:02] "POST /process HTTP/1.1" 200 -
+Request, WE 24.53+0.00ms, DS 0.13ms, NW 11.54+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:57:59] "POST /process HTTP/1.1" 200 -
+Request, WE 24.97+0.00ms, DS 0.13ms, NW 11.79+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:58:56] "POST /process HTTP/1.1" 200 -
+Request, WE 25.26+0.00ms, DS 0.13ms, NW 12.63+0.00ms, RD 0.01ms.
+172.25.0.1 - - [01/Jun/2024 23:59:46] "POST /process HTTP/1.1" 200 -
+Request, WE 25.49+0.00ms, DS 0.14ms, NW 12.41+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:02:47] "POST /process HTTP/1.1" 200 -
+Request, WE 25.02+0.00ms, DS 0.13ms, NW 11.34+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:03:21] "POST /process HTTP/1.1" 200 -
+Request, WE 24.83+0.00ms, DS 0.14ms, NW 13.14+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:04:05] "POST /process HTTP/1.1" 200 -
+Request, WE 25.60+0.00ms, DS 0.18ms, NW 12.89+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:05:31] "POST /process HTTP/1.1" 200 -
+Request, WE 25.01+0.00ms, DS 0.15ms, NW 11.16+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:07:12] "POST /process HTTP/1.1" 200 -
+Request, WE 25.55+0.00ms, DS 0.13ms, NW 12.37+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:08:44] "POST /process HTTP/1.1" 200 -
+Request, WE 25.30+0.00ms, DS 0.14ms, NW 11.81+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:09:21] "POST /process HTTP/1.1" 200 -
+Request, WE 25.47+0.00ms, DS 0.13ms, NW 12.12+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:12:14] "POST /process HTTP/1.1" 200 -
+Request, WE 25.51+0.00ms, DS 0.13ms, NW 12.08+0.00ms, RD 0.01ms.
+172.25.0.1 - - [02/Jun/2024 00:13:08] "POST /process HTTP/1.1" 200 -
+Request, WE 27.89+0.00ms, DS 0.16ms, NW 14.01+0.00ms, RD 0.02ms.
